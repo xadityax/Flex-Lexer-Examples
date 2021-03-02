@@ -1,0 +1,22 @@
+%{
+#include <stdio.h>
+int maxlen = 0;
+string s;
+%
+}
+
+%
+\n {n++;}
+[ a-zA-Z0-9\t][ a-zA-Z0-9\t]* {
+	if(yyleng>maxlen){
+		s = yytext;
+		maxlen=yyleng;
+	}
+}
+%%
+main(){
+yyin = fopen("sample.txt","r");
+yyout = fopen("test.txt", "w");
+yylex();
+fprintf(yyout,"String : %s of length %d is longest",s,maxlen);
+}

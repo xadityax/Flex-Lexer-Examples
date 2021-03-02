@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+int lines=0,word=0,chars=0,blanks=0;
+%}
+
+%%
+[a-zA-Z_][a-zA-Z0-9_]* 
+ fprintf(yyout,"%c",(yytext[0]+3));
+}
+%%
+main(){
+yyin = fopen("sample.txt","r");
+// yyout = fopen("outputs.txt", "w");
+yylex();
+}

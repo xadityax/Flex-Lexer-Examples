@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+[a-zA-Z][a-zA-Z]* {
+ return;
+}
+%%
+main(){
+yyin = fopen("sample.txt","r");
+
+// yyout = fopen("outputs.txt", "w");
+yylex();
+}
